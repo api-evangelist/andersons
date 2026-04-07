@@ -1,7 +1,11 @@
 aid: andersons
-url: https://raw.githubusercontent.com/api-evangelist/andersons/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/andersons/refs/heads/main/apis.yml
 modified: '2026-03-21'
 apis: []
 common:
   - type: Website
     url: https://www.andersons.com
+description: >-
+  Shop the best selection of prom, homecoming & school spirt supplies. Find everything
+  you need to make your ideal prom reality. Get inspired today!
