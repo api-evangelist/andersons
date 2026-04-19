@@ -1,33 +1,17 @@
-# Andersons (andersons)
-Andersons is a Fortune 500 company. This repository captures the APIs, developer tools, and machine-readable API artifacts for Andersons.
+# The Andersons
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/andersons/refs/heads/main/apis.yml)
+The Andersons, Inc. is a diversified agribusiness company headquartered in Maumee, Ohio, with operations in grain, plant nutrients, and renewables. The Andersons does not publish a public developer API or developer portal.
 
-## Scope
+**URL:** https://raw.githubusercontent.com/api-evangelist/andersons/refs/heads/main/apis.yml
 
-- **Type:** Contract
-- **Position:** Consuming
-- **Access:** 3rd-Party
+**Website:** https://www.andersons.com
 
-## Tags:
+## Tags
 
- - Fortune 500
-
-## Timestamps
-
-- **Created:** 2026-03-21
-- **Modified:** 2026-03-21
-
-## APIs
-
-No public APIs have been documented yet. Contributions welcome.
-
-## Common Properties
-
-- [Website](https://www.andersons.com)
+Agribusiness, Agriculture, Ethanol, Grain, Plant Nutrients
 
 ## Maintainers
 
-**FN:** API Evangelist
-
-**Email:** info@apievangelist.com
+| Name | Email |
+|------|-------|
+| Kin Lane | kin@apievangelist.com |
