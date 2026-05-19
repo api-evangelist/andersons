@@ -16,6 +16,8 @@ modified: '2026-04-19'
 specificationVersion: '0.19'
 apis: []
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/theandersonsinc
   - type: Website
     url: https://www.andersons.com
   - type: Portal
