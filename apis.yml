@@ -3,7 +3,18 @@ name: The Andersons
 description: >-
   The Andersons, Inc. is a diversified agribusiness company headquartered in Maumee, Ohio, with operations in grain, plant nutrients, and renewables. Founded in 1947, the company operates grain elevators, fertilizer and nutrient businesses, and ethanol facilities across the United States and Canada. The Andersons does not publish a public developer API or developer portal. Business integrations are handled through EDI and direct partner arrangements.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/andersons.png
 tags:
   - Agribusiness
   - Agriculture
