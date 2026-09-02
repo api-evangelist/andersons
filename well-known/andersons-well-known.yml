@@ -1,0 +1,134 @@
+generated: '2026-09-02'
+method: probed
+source: >-
+  Live unauthenticated GET probes of /.well-known/* on every host The Andersons, Inc.
+  controls, plus the ADFS-native discovery paths on the federation host.
+note: >-
+  The Andersons publishes no /.well-known/ documents on any of its content hosts — every
+  path 404s (or, on the IIS-fronted portal hosts, returns a 130-byte empty HTML shell that
+  is a catch-all, not a document). The ONE real machine-readable discovery document the
+  company serves is an OpenID Connect configuration, and it is not at the RFC 8414 root:
+  Active Directory Federation Services publishes it under /adfs/.well-known/openid-configuration
+  on portalauth.andersonsinc.com, the WS-Federation identity provider behind the GRAINweb and
+  SmartTicket customer portals. It is served anonymously, parses as JSON, and its own
+  `issuer` names portalauth.andersonsinc.com — so it belongs to this company.
+hosts:
+  - host: portalauth.andersonsinc.com
+    role: >-
+      ADFS / WS-Federation identity provider for The Andersons customer portals
+      (GRAINweb, SmartTicket, andersonstickets.com).
+    documents:
+      - path: /adfs/.well-known/openid-configuration
+        status: 200
+        content_type: application/json
+        file: andersons-openid-configuration.json
+        note: >-
+          Real OIDC discovery document. issuer https://portalauth.andersonsinc.com/adfs;
+          authorization, token, userinfo, logout and device-code endpoints all on this host.
+      - path: /adfs/discovery/keys
+        status: 200
+        content_type: application/json
+        file: andersons-jwks.json
+        note: JWKS referenced by the discovery document's jwks_uri. One RS256 signing key.
+      - path: /.well-known/openid-configuration
+        status: 503
+        note: RFC 8414 root path is not served; ADFS publishes only under /adfs/.
+      - path: /adfs/.well-known/oauth-authorization-server
+        status: 503
+        note: Not served.
+  - host: www.andersonsinc.com
+    role: Corporate website (The Andersons, Inc.)
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: portal.andersonsinc.com
+    role: Customer account management portal (IIS)
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 200
+        note: >-
+          NOT a document. A 130-byte empty HTML shell served by the IIS catch-all for every
+          unmatched path. Recorded as a miss.
+      - path: /.well-known/openid-configuration
+        status: 200
+        note: Same 130-byte empty HTML catch-all shell. Miss.
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        note: Same 130-byte empty HTML catch-all shell. Miss.
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: www.andersonsgrain.com
+    role: The Andersons Trade Group (grain merchandising) website
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: andersonsplantnutrient.com
+    role: The Andersons Plant Nutrient Group website (Craft CMS)
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: grainweb.com
+    role: GRAINweb customer portal (redirects to portalauth ADFS sign-in)
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 200
+        note: 130-byte empty HTML catch-all shell, not a document. Miss.
+      - path: /.well-known/openid-configuration
+        status: 200
+        note: 130-byte empty HTML catch-all shell, not a document. Miss.
+      - path: /.well-known/agent-card.json
+        status: 404
+  - host: andersonstickets.com
+    role: Farm2Market SmartTicket web app (redirects to portalauth ADFS sign-in)
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 200
+        note: 130-byte empty HTML catch-all shell, not a document. Miss.
+      - path: /.well-known/openid-configuration
+        status: 200
+        note: 130-byte empty HTML catch-all shell, not a document. Miss.
+      - path: /.well-known/agent-card.json
+        status: 404
+security_txt: false
+api_catalog: false
+agent_card: false

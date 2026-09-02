@@ -1,7 +1,23 @@
 aid: andersons
 name: The Andersons
 description: >-
-  The Andersons, Inc. is a diversified agribusiness company headquartered in Maumee, Ohio, with operations in grain, plant nutrients, and renewables. Founded in 1947, the company operates grain elevators, fertilizer and nutrient businesses, and ethanol facilities across the United States and Canada. The Andersons does not publish a public developer API or developer portal. Business integrations are handled through EDI and direct partner arrangements.
+  The Andersons, Inc. (NASDAQ: ANDE) is a diversified North American agribusiness
+  headquartered in Maumee, Ohio and founded in 1947, operating across four segments:
+  Agribusiness / commodity merchandising through The Andersons Trade Group grain
+  elevators and terminals, Nutrient & Industrial through The Andersons Plant Nutrient
+  Group and its turf and specialty products, Renewables through its ethanol production
+  and marketing joint ventures, and premium food and pet-food ingredients. The company
+  publishes NO public developer API, no developer portal, no OpenAPI or other
+  machine-readable contract, and no SDKs. Its customer-facing digital surface is a set of
+  authenticated end-user applications — the GRAINweb grain account portal, the Farm2Market
+  SmartTicket delivery-ticket web app at andersonstickets.com, the AndeConnect and Trade
+  Group mobile apps (the AndeConnect app is operated on the company's behalf by the ag
+  platform vendor Bushel), and portal.andersonsinc.com account management — all federated
+  through an Active Directory Federation Services identity provider at
+  portalauth.andersonsinc.com. Business-to-business integration is handled through EDI and
+  direct merchant relationships rather than a self-service API. NOTE ON IDENTITY: the
+  domain andersons.com belongs to Anderson's of White Bear Lake, Minnesota, an unrelated
+  prom and school-spirit party-supply retailer; The Andersons, Inc. is at andersonsinc.com.
 type: Index
 deliveryModel:
   model: unknown
@@ -29,23 +45,78 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/andersons.
 tags:
   - Agribusiness
   - Agriculture
-  - Ethanol
   - Grain
+  - Commodity Merchandising
   - Plant Nutrients
+  - Fertilizer
+  - Renewables
+  - Ethanol
+  - Food and Feed Ingredients
+  - Turf and Specialty Products
+  - Rail Leasing
+  - Supply Chain
 url: https://raw.githubusercontent.com/api-evangelist/andersons/refs/heads/main/apis.yml
 created: '2026-03-21'
-modified: '2026-04-19'
+modified: '2026-09-02'
 specificationVersion: '0.23'
 apis: []
 common:
-  - type: DomainSecurity
-    url: security/andersons-domain-security.yml
+  - type: Website
+    url: https://www.andersonsinc.com/
   - type: LinkedIn
     url: https://www.linkedin.com/company/theandersonsinc
-  - type: Website
-    url: https://www.andersons.com
-  - type: Portal
-    url: https://www.andersons.com
+  - type: GitHubOrganization
+    url: https://github.com/the-andersons-inc
+  - type: Support
+    url: https://www.andersonsinc.com/contact/contact-information/
+  - type: TermsOfService
+    url: https://www.andersonsinc.com/terms-of-use/
+  - type: PrivacyPolicy
+    url: https://www.andersonsinc.com/privacy/
+  - type: WellKnown
+    url: well-known/andersons-well-known.yml
+  - type: Authentication
+    url: authentication/andersons-authentication.yml
+  - type: OAuthScopes
+    url: scopes/andersons-scopes.yml
+  - type: Conformance
+    url: conformance/andersons-conformance.yml
+  - type: DomainSecurity
+    url: security/andersons-domain-security.yml
+  - type: Plans
+    url: plans/andersons-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/andersons-rate-limits.yml
+  - type: LLMsTxt
+    url: llms/andersons-llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-09-02'
+  status: minimal
+  artifacts_added: 9
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    The Andersons ships customer software — the GRAINweb grain portal, the Farm2Market
+    SmartTicket web app and two mobile apps — but only as authenticated end-user products
+    behind an ADFS single sign-on; there is no developer program, no API reference and no
+    machine-readable contract on any of the seven hosts probed, and the corporate sitemap's
+    49 URLs contain no developer, API or pricing page at all.
+  evidence:
+    - url: https://www.andersonsinc.com/developers/
+      status: 404
+    - url: https://www.andersonsinc.com/openapi.json
+      status: 404
+    - url: https://www.andersonsinc.com/api-docs
+      status: 404
+    - url: https://www.andersonsgrain.com/swagger/v1/swagger.json
+      status: 404
+    - url: https://portal.andersonsinc.com/.well-known/agent-card.json
+      status: 404
+    - url: https://portalauth.andersonsinc.com/adfs/.well-known/openid-configuration
+      status: 200
+  checked: '2026-09-02'

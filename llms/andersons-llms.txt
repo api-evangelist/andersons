@@ -1,0 +1,80 @@
+# The Andersons, Inc.
+
+> Diversified North American agribusiness (NASDAQ: ANDE), headquartered in Maumee, Ohio and
+> founded in 1947. Operates in commodity merchandising (grain elevators and terminals),
+> nutrient & industrial (plant nutrients, turf and specialty products), renewables (ethanol),
+> and premium food and pet-food ingredients.
+
+<!--
+generated: 2026-09-02
+method: generated
+source: all/andersons/apis.yml plus live probes of andersonsinc.com, andersonsgrain.com,
+        andersonsplantnutrient.com and portalauth.andersonsinc.com on 2026-09-02.
+        Written by the API Evangelist enrichment pipeline; NOT published by The Andersons.
+-->
+
+## API status
+
+**The Andersons publishes no public API.** As of 2026-09-02 there is no developer portal,
+no API reference, no OpenAPI/Swagger/GraphQL/AsyncAPI contract, no SDK, no CLI, no MCP
+server, no A2A agent card, and no webhook catalog on any host the company controls.
+`/openapi.json`, `/swagger.json`, `/swagger/v1/swagger.json`, `/api-docs`, `/developers/`
+and `/api/` all return 404. Business-to-business integration is handled by EDI and direct
+merchant relationships. Do not attempt to call an Andersons API — there is none to call.
+
+## Identity — read this before matching a domain
+
+`andersons.com` is **not** this company. It belongs to Anderson's of White Bear Lake,
+Minnesota, an unrelated prom and school-spirit party-supply retailer, and it answers HTTP
+200 with the same page for every path (a soft-404 catch-all). The Andersons, Inc. is at
+**andersonsinc.com**.
+
+## Corporate
+
+- [The Andersons, Inc.](https://www.andersonsinc.com/): Corporate website.
+- [Products & Services](https://www.andersonsinc.com/products-services/): Ag supply chain, renewables, industrial and specialty products, premium ingredients, turf.
+- [Investors](https://www.andersonsinc.com/investors/): NASDAQ: ANDE financial data, governance, stock details.
+- [Newsroom](https://www.andersonsinc.com/about-us/newsroom/): Press releases.
+- [Contact](https://www.andersonsinc.com/contact/contact-information/): Contact information.
+- [Terms of Use](https://www.andersonsinc.com/terms-of-use/)
+- [Privacy Policy](https://www.andersonsinc.com/privacy/)
+- [GitHub](https://github.com/the-andersons-inc): One public repository, a Craft CMS marketing site. No API code, no specs.
+
+## Business units and brands
+
+- [The Andersons Trade Group](https://www.andersonsgrain.com/): Grain merchandising, cash bids, futures and market commentary.
+- [The Andersons Plant Nutrient Group](https://andersonsplantnutrient.com/): Fertilizer and nutrient products.
+- [The Andersons Rail](http://www.andersonsrail.com/): Rail car leasing and repair.
+- [The Andersons Ethanol](http://www.andersonsethanol.com/): Renewables.
+- [The Andersons Canada](https://andersonscanada.com/)
+- [Maumee Ventures](https://www.andersonsinc.com/products-services/maumee-ventures/): Corporate venture arm.
+
+## Customer applications (authenticated end-user apps, not APIs)
+
+- [GRAINweb](https://grainweb.com/): Customer portal for grain account information — contracts, open orders, pricings, delayed price, delivery tickets. Contract and ticket data refreshed hourly. Sign-in redirects to the ADFS federation service.
+- [Farm2Market SmartTicket](https://www.andersonstickets.com/): Web app for submitting delivery tickets, single sign-on.
+- [AndeConnect mobile app](https://www.andersonsgrain.com/tools/andeconnect/): Contracts, tickets, commodity balances, location info and futures for customers in Idaho, Louisiana, New York and Midwest Trucking (Colorado). **Powered by Bushel**, a third-party ag platform vendor — the app surface is operated on The Andersons' behalf, not built by them.
+- [Trade Group mobile app](https://www.andersonsgrain.com/tools/mobile-apps/): Cash bids, location info and futures for customers in Indiana, Iowa, Kansas, Kentucky, Michigan, Nebraska and Ohio.
+- [Account management portal](https://portal.andersonsinc.com/): `robots.txt` is `Disallow: /`.
+
+## Identity federation (the only machine-readable surface)
+
+The one anonymously reachable, machine-readable document The Andersons serves is the
+OpenID Connect discovery document for the Active Directory Federation Services deployment
+that signs users into the portals above. It is identity infrastructure, not an API.
+
+- OIDC discovery: https://portalauth.andersonsinc.com/adfs/.well-known/openid-configuration (200)
+- JWKS: https://portalauth.andersonsinc.com/adfs/discovery/keys (200)
+- SAML 2.0 metadata: https://portalauth.andersonsinc.com/FederationMetadata/2007-06/FederationMetadata.xml (200)
+- WS-Trust MEX (WSDL): https://portalauth.andersonsinc.com/adfs/services/trust/mex (200) — Microsoft stock SecurityTokenService definition, not authored by The Andersons.
+- Issuer: `https://portalauth.andersonsinc.com/adfs`. Grant types include authorization_code, client_credentials, refresh_token, jwt-bearer and device_code. Client registration is not self-service and is not publicly documented, so no third party can obtain a client_id.
+
+## Public data worth knowing about
+
+- [Cash bids by location](https://www.andersonsgrain.com/locations/cash-bids/): Public elevator bid prices, rendered as HTML. No JSON or CSV feed is published.
+- [Market commentary and USDA reports](https://www.andersonsgrain.com/market-commentary/market-news/): Daily written and video commentary.
+- [Sustainability reviews](https://www.andersonsinc.com/sustainability/): 2023, 2024 and 2025 reviews.
+
+## Gated surfaces
+
+- [Supplier onboarding form](https://www.andersonsinc.com/products-services/supplier-resources/supplier-onboarding/): Returns "Access Denied — you have not entered the correct code". Requires an access code obtained from an Andersons employee.

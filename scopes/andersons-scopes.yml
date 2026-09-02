@@ -1,0 +1,59 @@
+generated: '2026-09-02'
+method: probed
+source: https://portalauth.andersonsinc.com/adfs/.well-known/openid-configuration
+docs: null
+note: >-
+  Scopes read verbatim from `scopes_supported` in the OIDC discovery document The Andersons
+  serves at portalauth.andersonsinc.com. These are the Microsoft ADFS built-in scopes for the
+  company's portal federation service, not scopes of a business API — The Andersons publishes
+  no API and no scope reference page. Descriptions below are the ADFS-defined meanings, marked
+  as such; the provider does not document them itself.
+issuer: https://portalauth.andersonsinc.com/adfs
+scope_count: 9
+scopes:
+  - name: openid
+    description: Request an OpenID Connect id_token for the signed-in user.
+    origin: adfs-builtin
+  - name: profile
+    description: Release the user's profile claims (unique_name, upn, sid).
+    origin: adfs-builtin
+  - name: email
+    description: Release the user's email claim.
+    origin: adfs-builtin
+  - name: allatclaims
+    description: Release all claims that would appear in the access token into the id_token as well.
+    origin: adfs-builtin
+  - name: aza
+    description: Microsoft broker/multi-resource refresh-token scope (primary refresh token).
+    origin: adfs-builtin
+  - name: user_impersonation
+    description: Act on behalf of the signed-in user against a relying-party resource.
+    origin: adfs-builtin
+  - name: logon_cert
+    description: Issue a logon certificate for the authenticated user.
+    origin: adfs-builtin
+  - name: winhello_cert
+    description: Issue a Windows Hello for Business certificate.
+    origin: adfs-builtin
+  - name: vpn_cert
+    description: Issue a VPN client certificate.
+    origin: adfs-builtin
+claims_supported:
+  - aud
+  - iss
+  - iat
+  - exp
+  - auth_time
+  - nonce
+  - at_hash
+  - c_hash
+  - sub
+  - upn
+  - unique_name
+  - pwd_url
+  - pwd_exp
+  - mfa_auth_time
+  - sid
+gaps:
+  - The provider publishes no scope/permission reference page; nothing here is provider-authored prose.
+  - No API-specific scopes exist because no API is published.

@@ -1,0 +1,106 @@
+generated: '2026-09-02'
+method: probed
+source: >-
+  Live probes of portalauth.andersonsinc.com federation metadata and
+  www.andersonsinc.com policy pages.
+note: >-
+  The Andersons, Inc. publishes no API and therefore asserts no API-level standards
+  conformance. The conformance that IS observable is on its identity federation surface,
+  and it was read from the documents themselves rather than from a marketing claim.
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: >-
+      https://portalauth.andersonsinc.com/adfs/.well-known/openid-configuration (200) declares
+      authorization_endpoint, token_endpoint, and grant_types_supported including
+      authorization_code, client_credentials and refresh_token.
+  - id: oidc
+    conforms: true
+    evidence: >-
+      Same document declares issuer, jwks_uri, userinfo_endpoint, id_token signing RS256,
+      subject_types_supported and claims_supported — an OpenID Provider discovery document
+      per OpenID Connect Discovery 1.0.
+  - id: rfc8628-device-authorization
+    conforms: true
+    evidence: >-
+      device_authorization_endpoint https://portalauth.andersonsinc.com/adfs/oauth2/devicecode
+      and grant type urn:ietf:params:oauth:grant-type:device_code in the discovery document.
+  - id: saml2
+    conforms: true
+    evidence: >-
+      https://portalauth.andersonsinc.com/FederationMetadata/2007-06/FederationMetadata.xml (200)
+      is a signed urn:oasis:names:tc:SAML:2.0:metadata EntityDescriptor,
+      entityID http://portalauth.andersonsinc.com/adfs/services/trust.
+  - id: ws-federation
+    conforms: true
+    evidence: >-
+      grainweb.com and andersonstickets.com both redirect to
+      /adfs/ls/?wtrealm=...&wctx=...&wa=wsignin1.0 — the WS-Federation passive requestor profile.
+  - id: ws-trust
+    conforms: true
+    evidence: >-
+      https://portalauth.andersonsinc.com/adfs/services/trust/mex (200) returns a WS-Trust 1.3
+      SecurityTokenService WSDL. Microsoft stock definition, not authored by The Andersons.
+  - id: rfc8414-oauth-authorization-server-metadata
+    conforms: false
+    evidence: >-
+      /.well-known/oauth-authorization-server returns 503 on portalauth.andersonsinc.com and 404
+      on www.andersonsinc.com. Discovery is only available at the ADFS-native /adfs/ path.
+  - id: rfc9728-protected-resource-metadata
+    conforms: false
+    evidence: No /.well-known/oauth-protected-resource served on any Andersons host.
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: /.well-known/security.txt 404 on www.andersonsinc.com, portal.andersonsinc.com, www.andersonsgrain.com, andersonsplantnutrient.com.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: No API, no error envelope published.
+  - id: openapi
+    conforms: false
+    evidence: >-
+      /openapi.json, /swagger.json, /swagger/v1/swagger.json, /api-docs all 404 (or return an
+      IIS catch-all shell) on every Andersons host probed.
+domain_standards:
+  note: >-
+    The Andersons operates in grain merchandising, plant nutrients, renewables and rail. The
+    market standards that would apply — ANSI X12 EDI (850/856/810/940 and the ag-specific
+    transaction sets), AGIIS/GS1 product identification, ISCC and EPA RFS renewable-fuel
+    reporting — are business-to-business arrangements. NONE of them is declared in any
+    machine-readable contract this company publishes, because it publishes none. No
+    domain-standard conformance is asserted. Reward-only check: not penalised.
+  candidates_not_declared:
+    - ansi-x12-edi
+    - agiis-gs1
+    - iscc-eu
+    - epa-rfs-emts
+certifications: []
+compliance_programs:
+  - name: Anti-Corruption / Anti-Bribery Compliance Policy
+    url: https://www.andersonsinc.com/anti-corruption-anti-bribery-compliance-policy/
+    status: 200
+    type: corporate-governance
+  - name: Human Rights Policy
+    url: https://www.andersonsinc.com/human-rights-policy/
+    status: 200
+    type: corporate-governance
+  - name: Deforestation Statement
+    url: https://www.andersonsinc.com/deforestation-statement/
+    status: 200
+    type: supply-chain
+  - name: Supplier Code of Conduct
+    url: https://www.andersonsinc.com/supplier-code-of-conduct/
+    status: 200
+    type: supply-chain
+  - name: Accessible Canada Act statement
+    url: https://www.andersonsinc.com/accessible-canada-act/
+    status: 200
+    type: accessibility
+  - name: Ethics Hotline
+    url: https://www.andersonsinc.com/ethics-hotline/
+    status: 200
+    type: corporate-governance
+compliance_note: >-
+  These are corporate-governance and supply-chain policies, not information-security
+  certifications. No SOC 2, ISO 27001, PCI DSS, HIPAA or FedRAMP attestation is published
+  anywhere on The Andersons' sites, and no trust center exists — so no `Compliance` or
+  `TrustCenter` pointer is emitted.

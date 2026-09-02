@@ -1,0 +1,32 @@
+generated: '2026-09-02'
+method: searched
+source: https://www.andersonsinc.com/
+note: >-
+  The Andersons, Inc. publishes no API plans or developer pricing because it publishes no API.
+  There is no pricing page on the corporate site, no /developers, no /api, and no sign-up flow
+  for anything other than the customer-only GRAINweb portal — which requires an existing grain
+  account with the company and is provisioned by staff within one business day, not purchased.
+  The company's commercial surface is physical commodity trading: grain cash bids, fertilizer,
+  ethanol and ingredient supply priced per contract and per delivery location, negotiated with
+  a merchant. plan_count is an honest zero, not an unchecked field.
+plan_count: 0
+plans: []
+pricing_model: contract-negotiated commodity trading; no productized API or SaaS tier
+free_tier: false
+self_service_signup: false
+evidence:
+  - url: https://www.andersonsinc.com/
+    status: 200
+    note: Corporate site sitemap holds 49 URLs; none is a pricing, plans, developer or API page.
+  - url: https://www.andersonsinc.com/developers/
+    status: 404
+  - url: https://www.andersonsinc.com/api/
+    status: 404
+  - url: https://www.andersonsgrain.com/tools/grainweb/
+    status: 200
+    note: >-
+      GRAINweb sign-up is an account-verification flow for existing customers
+      ("you will have access to your customer data within one business day"), not a purchase.
+  - url: https://www.andersonsgrain.com/locations/cash-bids/
+    status: 200
+    note: Public commodity cash bids by elevator location — market data, not an API plan.

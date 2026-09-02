@@ -1,0 +1,23 @@
+generated: '2026-09-02'
+method: searched
+source: https://www.andersonsinc.com/
+note: >-
+  No published rate limits, because The Andersons publishes no API. There is no developer
+  reference on any host the company controls, and the only anonymously reachable
+  machine-readable endpoint — the ADFS OpenID Connect discovery document at
+  portalauth.andersonsinc.com — carries no rate-limit headers and no documented quota.
+  limit_count is an honest zero: checked, nothing to record.
+limit_count: 0
+limits: []
+response_headers: []
+exhaustion_status: null
+retry_after: null
+evidence:
+  - url: https://www.andersonsinc.com/developers/
+    status: 404
+  - url: https://www.andersonsinc.com/api-docs
+    status: 404
+  - url: https://portalauth.andersonsinc.com/adfs/.well-known/openid-configuration
+    status: 200
+    note: >-
+      200 with no X-RateLimit-*, no RateLimit-* and no Retry-After header on the response.
