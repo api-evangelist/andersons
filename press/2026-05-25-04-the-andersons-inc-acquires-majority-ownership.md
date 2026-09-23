@@ -1,7 +1,9 @@
 ---
 title: The Andersons, Inc. Acquires Majority Ownership ...
 url: https://www.linkedin.com/posts/theandersonsinc_the-andersons-inc-acquires-majority-ownership-activity-7259199698412961792-ouL3
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Andersons" press release artificial intelligence'
 position: 4
 source: serpapi-google

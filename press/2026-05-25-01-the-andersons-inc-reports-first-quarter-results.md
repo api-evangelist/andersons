@@ -1,7 +1,9 @@
 ---
 title: The Andersons, Inc. Reports First Quarter Results
 url: https://www.prnewswire.com/news-releases/the-andersons-inc-reports-first-quarter-results-302762937.html
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Andersons" press release artificial intelligence'
 position: 1
 source: serpapi-google

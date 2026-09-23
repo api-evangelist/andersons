@@ -1,7 +1,9 @@
 ---
 title: The Andersons, Inc. - Terms of Use
 url: https://www.andersonsinc.com/terms-of-use/
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Andersons" press release artificial intelligence'
 position: 5
 source: serpapi-google
