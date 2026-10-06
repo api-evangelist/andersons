@@ -57,10 +57,12 @@ tags:
   - Supply Chain
 url: https://raw.githubusercontent.com/api-evangelist/andersons/refs/heads/main/apis.yml
 created: '2026-03-21'
-modified: '2026-09-02'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis: []
 common:
+  - url: https://news.andersonsinc.com/press-releases?pagetemplate=rss
+    type: BlogRSS
   - type: Website
     url: https://www.andersonsinc.com/
   - type: LinkedIn
